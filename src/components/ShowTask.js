@@ -1,12 +1,12 @@
 import React from 'react'
 
 export const ShowTask = ({ taskList, setTasklist, task, setTask }) => {
-  const handleEdit = id => {
-    const selectedTask = taskList.find(todo => todo.id !== id)
+  const handleEdit = (id) => {
+    const selectedTask = taskList.find(todo => todo.id === id)
     setTask(selectedTask)
   }
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     const updatedTasklist = taskList.filter(todo => todo.id !== id)
     setTasklist(updatedTasklist)
   }
@@ -17,12 +17,12 @@ export const ShowTask = ({ taskList, setTasklist, task, setTask }) => {
           <span className="title">Todo</span>
           <span className="count">{taskList.length}</span>
         </div>
-        <button className="clearAll" onClick={() => setTasklist([])}>
+        <button  onClick={() => setTasklist([])}className="clearAll" >
           Clear All>
         </button>
       </div>
       <ul>
-        {taskList.map(todo => (
+        {taskList.map((todo) => (
           <li key={todo.id}>
             <p>
               <span className="name">{todo.name}</span>
